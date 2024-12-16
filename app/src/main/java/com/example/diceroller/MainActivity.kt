@@ -28,6 +28,11 @@ import androidx.compose.ui.unit.dp
 import com.example.diceroller.ui.theme.DiceRollerTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.em
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +48,20 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun DiceRollerApp() {
-    DiceWithButtonAndImage(modifier = Modifier
-        .fillMaxSize()
-        .wrapContentSize(Alignment.Center))
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        DiceText(
+            modifier = Modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.TopCenter)
+        )
+        DiceWithButtonAndImage(
+            modifier = Modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center)
+        )
+    }
 }
 
 @Composable
@@ -79,4 +95,17 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
         }
     }
 }
+}
+
+@Composable
+fun DiceText(name:String = "Dice Roller", modifier: Modifier = Modifier) {
+    Text(
+        text = name,
+        fontWeight = FontWeight.Bold,
+        fontSize = 13.em,
+        textAlign = TextAlign.Center,
+        color = Color.Gray,
+        modifier = Modifier
+            .padding(top = 20.dp)
+    )
 }
