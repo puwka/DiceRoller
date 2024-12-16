@@ -38,6 +38,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             DiceRollerTheme {
                 DiceRollerApp()
+            }
         }
     }
 }
@@ -91,7 +92,6 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
             }
         }
     }
-}
 }
 
 @Composable
